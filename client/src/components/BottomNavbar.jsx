@@ -4,12 +4,12 @@ import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 import { Sun, Moon } from "lucide-react";
 import useTheme from "../hooks/useTheme";
 
-/* ---------- Icon Button (ONLY active shows circle) ---------- */
+/* ---------- Icon Button (only active shows circle) ---------- */
 const IconButton = ({ id, activeIcon, setActiveIcon, children, href }) => {
   const isActive = activeIcon === id;
 
   const className = `
-    w-10 h-10
+    w-11 h-11
     flex items-center justify-center
     rounded-full
     transition
@@ -49,8 +49,8 @@ export default function BottomNavbar() {
     <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50">
       <div
         className="
-          flex items-center gap-2
-          px-3 py-3
+          flex items-center gap-1
+          px-2 py-3
           rounded-full
           bg-[var(--card)]
           border border-[var(--border)]
@@ -64,7 +64,7 @@ export default function BottomNavbar() {
           activeIcon={activeIcon}
           setActiveIcon={setActiveIcon}
         >
-          <House size={20} weight="regular" />
+          <House size={22} weight="regular" />
         </IconButton>
 
         {/* NOTEBOOK */}
@@ -73,7 +73,7 @@ export default function BottomNavbar() {
           activeIcon={activeIcon}
           setActiveIcon={setActiveIcon}
         >
-          <Notebook size={20} weight="regular" />
+          <Notebook size={22} weight="regular" />
         </IconButton>
 
         {/* SEPARATOR */}
@@ -86,7 +86,7 @@ export default function BottomNavbar() {
           setActiveIcon={setActiveIcon}
           href="https://github.com/Shivam30Mishra"
         >
-          <FaGithub size={18} />
+          <FaGithub size={20} />
         </IconButton>
 
         {/* LINKEDIN */}
@@ -96,7 +96,7 @@ export default function BottomNavbar() {
           setActiveIcon={setActiveIcon}
           href="https://www.linkedin.com/in/shivam-mishra-777026280/"
         >
-          <FaLinkedin size={18} />
+          <FaLinkedin size={20} />
         </IconButton>
 
         {/* X */}
@@ -106,7 +106,7 @@ export default function BottomNavbar() {
           setActiveIcon={setActiveIcon}
           href="https://x.com/shivamM97963756"
         >
-          <FaXTwitter size={16} />
+          <FaXTwitter size={18} />
         </IconButton>
 
         {/* SEPARATOR */}
@@ -119,7 +119,7 @@ export default function BottomNavbar() {
             setActiveIcon("theme");
           }}
           className={`
-            w-10 h-10
+            w-11 h-11
             flex items-center justify-center
             rounded-full
             transition
@@ -128,9 +128,9 @@ export default function BottomNavbar() {
           `}
         >
           {theme === "dark" ? (
-            <Moon size={18} />
+            <Moon size={20} />
           ) : (
-            <Sun size={18} />
+            <Sun size={20} />
           )}
         </button>
       </div>

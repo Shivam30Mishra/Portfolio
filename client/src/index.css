@@ -2,29 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ---------- LIGHT THEME ---------- */
 :root {
-  --bg: #ffffff;
+  --bg: #fafafa;
   --text: #0a0a0a;
-  --card: #f5f5f5;
-  --border: #e5e5e5;
-
+  --text-muted: #525252;
+  --card: #ffffff;
+  --border: #e4e4e7;
   --icon: #0a0a0a;
-  --icon-muted: #555;
 }
 
-/* ---------- DARK THEME ---------- */
 .dark {
   --bg: #0a0a0a;
   --text: #eaeaea;
+  --text-muted: #9ca3af;
   --card: #111111;
   --border: #1f1f1f;
-
   --icon: #eaeaea;
-  --icon-muted: #9ca3af;
 }
 
+.input {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 0.875rem;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+.input::placeholder {
+  color: var(--text-muted);
+}
+
+
 body {
-  background-color: var(--bg);
+  background: var(--bg);
   color: var(--text);
 }

@@ -1,109 +1,146 @@
 import Container from "../components/Container";
+import { motion } from "framer-motion";
 
 export default function Home() {
   return (
     <main className="pt-40">
-      {/* HERO SECTION */}
+      {/* HERO */}
       <section>
         <Container>
-          <h1 className="text-5xl md:text-6xl font-semibold leading-tight tracking-tight">
+          <motion.h1
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="
+              text-[56px] md:text-[64px]
+              font-semibold
+              leading-[1.05]
+              tracking-[-0.02em]
+            "
+          >
             Full Stack <br /> Developer
-          </h1>
+          </motion.h1>
 
-          <p className="mt-6 text-gray-400 max-w-xl text-base">
+          <motion.p
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.15, duration: 0.5 }}
+            className="
+              mt-6
+              max-w-xl
+              text-[16px]
+              text-[var(--text-muted)]
+            "
+          >
             I build clean, scalable web applications using the MERN stack.
-          </p>
+          </motion.p>
 
-          <div className="mt-10 flex gap-4">
+          <motion.div
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.5 }}
+            className="mt-10 flex gap-4"
+          >
             <a
               href="#projects"
-              className="px-6 py-2 bg-white text-black text-sm font-medium"
+              className="
+                px-6 py-2
+                text-sm font-medium
+                bg-[var(--text)]
+                text-[var(--bg)]
+              "
             >
               View Projects
             </a>
 
             <a
               href="#contact"
-              className="px-6 py-2 border border-[#1f1f1f] text-sm font-medium hover:border-gray-400 transition"
+              className="
+                px-6 py-2
+                text-sm font-medium
+                border border-[var(--border)]
+              "
             >
               Contact
             </a>
-          </div>
+          </motion.div>
         </Container>
       </section>
 
-      {/* PROJECTS SECTION */}
-      <section id="projects" className="mt-40">
+      {/* PROJECTS */}
+      <section id="projects" className="mt-44">
         <Container>
-          <h2 className="text-3xl font-semibold mb-12 tracking-tight">
+          <h2 className="text-2xl font-semibold mb-12 tracking-tight">
             Selected Projects
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-[#111111] border border-[#1f1f1f] p-6 hover:border-gray-500 transition">
-              <h3 className="text-xl font-medium tracking-tight">
-                Project Title
-              </h3>
-
-              <p className="mt-3 text-gray-400 text-sm">
-                Short description of the project goes here. Explain
-                what problem it solves and what you built.
-              </p>
-
-              <div className="mt-4 text-xs text-gray-500">
-                React · Node.js · MongoDB
-              </div>
-            </div>
-
-            <div className="bg-[#111111] border border-[#1f1f1f] p-6 hover:border-gray-500 transition">
-              <h3 className="text-xl font-medium tracking-tight">
-                Project Title
-              </h3>
-
-              <p className="mt-3 text-gray-400 text-sm">
-                Short description of the project goes here. Explain
-                what problem it solves and what you built.
-              </p>
-
-              <div className="mt-4 text-xs text-gray-500">
-                React · Express · MongoDB
-              </div>
-            </div>
-          </div>
+          <ProjectsGrid />
         </Container>
       </section>
 
-      {/* CONTACT SECTION */}
-      <section id="contact" className="mt-40 pb-40">
+      {/* CONTACT */}
+      <section id="contact" className="mt-44 pb-40">
         <Container>
-          <h2 className="text-3xl font-semibold mb-8 tracking-tight">
+          <h2 className="text-2xl font-semibold mb-10 tracking-tight">
             Get in touch
           </h2>
 
           <form className="max-w-md space-y-4">
-            <input
-              className="w-full bg-[#0a0a0a] border border-[#1f1f1f] p-3 text-sm focus:outline-none focus:border-gray-400 transition"
-              placeholder="Name"
-            />
-            <input
-              className="w-full bg-[#0a0a0a] border border-[#1f1f1f] p-3 text-sm focus:outline-none focus:border-gray-400 transition"
-              placeholder="Email"
-            />
-            <textarea
-              className="w-full bg-[#0a0a0a] border border-[#1f1f1f] p-3 text-sm focus:outline-none focus:border-gray-400 transition"
-              placeholder="Message"
-              rows="4"
-            />
-
-            <button
-              type="submit"
-              className="px-6 py-2 bg-white text-black text-sm font-medium"
-            >
-              Send Message
+            <input className="input" placeholder="Name" />
+            <input className="input" placeholder="Email" />
+            <textarea className="input h-28" placeholder="Message" />
+            <button className="px-6 py-2 bg-[var(--text)] text-[var(--bg)] text-sm">
+              Send
             </button>
           </form>
         </Container>
       </section>
     </main>
+  );
+}
+
+/* ---------- Projects Grid ---------- */
+function ProjectsGrid() {
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+      <ProjectCard
+        title="Project Title"
+        desc="Short description of the project. Explain what problem it solves and what you built."
+        stack="React · Node · MongoDB"
+      />
+      <ProjectCard
+        title="Project Title"
+        desc="Short description of the project. Explain what problem it solves and what you built."
+        stack="React · Express · MongoDB"
+      />
+    </div>
+  );
+}
+
+/* ---------- Project Card ---------- */
+function ProjectCard({ title, desc, stack }) {
+  return (
+    <motion.div
+      whileHover={{ y: -4 }}
+      transition={{ duration: 0.3, ease: "easeOut" }}
+      className="
+        group
+        border border-[var(--border)]
+        p-6
+        bg-[var(--card)]
+      "
+    >
+      <h3 className="text-lg font-medium tracking-tight">
+        {title}
+      </h3>
+
+      <p className="mt-3 text-sm text-[var(--text-muted)] leading-relaxed">
+        {desc}
+      </p>
+
+      <p className="mt-4 text-xs text-[var(--text-muted)]">
+        {stack}
+      </p>
+    </motion.div>
   );
 }
