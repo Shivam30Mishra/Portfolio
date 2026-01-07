@@ -4,11 +4,15 @@ export default {
     "./src/**/*.{js,jsx}",
   ],
   theme: {
-    extend: {
-      fontFamily: {
-        sans: ["Inter", "sans-serif"],
-      },
+  extend: {
+    fontFamily: {
+      sans: ["Inter", "system-ui", "sans-serif"],
+    },
+    letterSpacing: {
+      tightest: "-0.03em",
+      tighter: "-0.02em",
     },
   },
+},
   plugins: [],
 }
