@@ -2,7 +2,7 @@ import Container from "../components/Container";
 
 export default function Home() {
   return (
-    <main className="pt-32">
+    <main className="pt-40">
       {/* HERO SECTION */}
       <section>
         <Container>

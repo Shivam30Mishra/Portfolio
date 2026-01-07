@@ -2,7 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ---------- LIGHT THEME ---------- */
+:root {
+  --bg: #ffffff;
+  --text: #0a0a0a;
+  --card: #f5f5f5;
+  --border: #e5e5e5;
+
+  --icon: #0a0a0a;
+  --icon-muted: #555;
+}
+
+/* ---------- DARK THEME ---------- */
+.dark {
+  --bg: #0a0a0a;
+  --text: #eaeaea;
+  --card: #111111;
+  --border: #1f1f1f;
+
+  --icon: #eaeaea;
+  --icon-muted: #9ca3af;
+}
+
 body {
-  background-color: #0a0a0a;
-  color: #eaeaea;
+  background-color: var(--bg);
+  color: var(--text);
 }
